@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kota;
 use App\Models\Kecamatan;
+use App\Models\Kota;
 use Illuminate\Http\Request;
 
 class KecamatanController extends Controller
@@ -16,7 +16,7 @@ class KecamatanController extends Controller
     public function index()
     {
         $kecamatan = Kecamatan::with('kota')->get();
-        return view('admin.kecamatan.index', compact('kecamatan'));
+        return view('admin.kecamatan.index',compact('kecamatan'));
     }
 
     /**
@@ -27,7 +27,7 @@ class KecamatanController extends Controller
     public function create()
     {
         $kota = Kota::all();
-        return view('admin.kecamatan.create', compact('kota'));
+        return view('admin.kecamatan.create',compact('kota'));
     }
 
     /**
@@ -38,22 +38,12 @@ class KecamatanController extends Controller
      */
     public function store(Request $request)
     {
-         //VALIDASI
-         $request->validate([
-            'kode_kecamatan' => 'required|max:4|unique:kecamatans',
-            'nama_kecamatan' => 'required|unique:kecamatans',
-        ], [
-            'kode_kecamatan.required' => 'Kode Harus Di isi!',
-            'kode_kecamatan.max' => 'Kode Maksimal 4 Nomor',
-            'kode_kecamatan.unique' => 'Kode Sudah Di Pakai',
-            'nama_kecamatan.require' => 'Nama provinsi Harus Di isi',
-            'nama_kecamatan.unique' => 'Nama Sudah Di Pakai!',
+        $validated = $request->validate([
+            'nama_kecamatan' => 'required|unique:kecamatans|max:255',
         ]);
-
         $kecamatan = new Kecamatan();
-        $kecamatan->kode_kota = $request->kode_kota;
-        $kecamatan->kode_kecamatan = $request->kode_kecamatan;
         $kecamatan->nama_kecamatan = $request->nama_kecamatan;
+        $kecamatan->id_kota = $request->id_kota;
         $kecamatan->save();
         return redirect()->route('kecamatan.index');
     }
@@ -61,7 +51,7 @@ class KecamatanController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Kecamatan  $kecamatan
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -74,7 +64,7 @@ class KecamatanController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Kecamatan  $kecamatan
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -89,24 +79,22 @@ class KecamatanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Kecamatan  $kecamatan
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $kecamatan = Kecamatan::findOrFail($id);
-        $kecamatan->kode_kota = $request->kode_kota;
-        $kecamatan->kode_kecamatan = $request->kode_kecamatan;
         $kecamatan->nama_kecamatan = $request->nama_kecamatan;
+        $kecamatan->id_kota = $request->id_kota;
         $kecamatan->save();
         return redirect()->route('kecamatan.index');
-        
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Kecamatan  $kecamatan
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -114,6 +102,5 @@ class KecamatanController extends Controller
         $kecamatan = Kecamatan::findOrFail($id);
         $kecamatan->delete();
         return redirect()->route('kecamatan.index');
-        
     }
 }

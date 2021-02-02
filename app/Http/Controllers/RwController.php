@@ -16,7 +16,7 @@ class RwController extends Controller
     public function index()
     {
         $rw = Rw::with('kelurahan')->get();
-        return view('admin.rw.index', compact('rw'));
+        return view('admin.rw.index',compact('rw'));
     }
 
     /**
@@ -27,7 +27,7 @@ class RwController extends Controller
     public function create()
     {
         $kelurahan = Kelurahan::all();
-        return view('admin.rw.create', compact('kelurahan'));
+        return view('admin.rw.create',compact('kelurahan'));
     }
 
     /**
@@ -38,21 +38,9 @@ class RwController extends Controller
      */
     public function store(Request $request)
     {
-         //VALIDASI
-         $request->validate([
-            'id_rw' => 'required|max:4|unique:rws',
-            'nama' => 'required|unique:rws',
-        ], [
-            'id_rw.required' => 'Kode Harus Di isi!',
-            'id_rw.max' => 'Kode Maksimal 4 Nomor',
-            'id_rw.unique' => 'Kode Sudah Di Pakai',
-            'nama_rw.require' => 'Nama Rw Harus Di isi',
-            'nama_rw.unique' => 'Nama Sudah Di Pakai!',
-        ]);
         $rw = new Rw();
+        $rw->nama_rw = $request->nama_rw;
         $rw->id_kelurahan = $request->id_kelurahan;
-        $rw->id_rw = $request->id_rw;
-        $rw->nama = $request->nama;
         $rw->save();
         return redirect()->route('rw.index');
     }
@@ -60,7 +48,7 @@ class RwController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Rw  $rw
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -69,11 +57,10 @@ class RwController extends Controller
         $kelurahan = Kelurahan::all();
         return view('admin.rw.show',compact('rw','kelurahan'));
     }
-
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Rw  $rw
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -88,24 +75,22 @@ class RwController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Rw  $rw
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $rw = Rw::findOrFail($id);
+        $rw->nama_rw = $request->nama_rw;
         $rw->id_kelurahan = $request->id_kelurahan;
-        $rw->id_rw = $request->id_rw;
-        $rw->nama = $request->nama;
         $rw->save();
         return redirect()->route('rw.index');
-        
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Rw  $rw
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -113,6 +98,5 @@ class RwController extends Controller
         $rw = Rw::findOrFail($id);
         $rw->delete();
         return redirect()->route('rw.index');
-        
     }
 }

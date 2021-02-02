@@ -16,7 +16,7 @@ class KotaController extends Controller
     public function index()
     {
         $kota = Kota::with('provinsi')->get();
-        return view('admin.kota.index', compact('kota'));
+        return view('admin.kota.index',compact('kota'));
     }
 
     /**
@@ -27,7 +27,8 @@ class KotaController extends Controller
     public function create()
     {
         $provinsi = Provinsi::all();
-        return view('admin.kota.create', compact('provinsi'));
+        return view('admin.kota.create',compact('provinsi'));
+
     }
 
     /**
@@ -38,22 +39,14 @@ class KotaController extends Controller
      */
     public function store(Request $request)
     {
-          //VALIDASI
-          $request->validate([
-            'kode_kota' => 'required|max:4|unique:kotas',
-            'nama_kota' => 'required|unique:kotas',
-        ], [
-            'kode_kota.required' => 'Kode Harus Di isi!',
-            'kode_kota.max' => 'Kode Maksimal 4 Nomor',
-            'kode_kota.unique' => 'Kode Sudah Di Pakai',
-            'nama_kota.require' => 'Nama Kota Harus Di isi',
-            'nama_kota.unique' => 'Nama Sudah Di Pakai!',
+        $validated = $request->validate([
+            'kode_kota' => 'required|unique:kotas|max:255',
+            'nama_kota' => 'required|unique:kotas|max:255',
         ]);
-
         $kota = new Kota();
-        $kota->kode_provinsi = $request->kode_provinsi;
         $kota->kode_kota = $request->kode_kota;
         $kota->nama_kota = $request->nama_kota;
+        $kota->id_provinsi = $request->id_provinsi;
         $kota->save();
         return redirect()->route('kota.index');
     }
@@ -61,7 +54,7 @@ class KotaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Kota  $kota
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -74,7 +67,7 @@ class KotaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Kota  $kota
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -89,24 +82,23 @@ class KotaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Kota  $kota
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $kota = Kota::findOrFail($id);
-        $kota->kode_provinsi = $request->kode_provinsi;
         $kota->kode_kota = $request->kode_kota;
         $kota->nama_kota = $request->nama_kota;
+        $kota->id_provinsi = $request->id_provinsi;
         $kota->save();
         return redirect()->route('kota.index');
-        
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Kota  $kota
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -114,6 +106,5 @@ class KotaController extends Controller
         $kota = Kota::findOrFail($id);
         $kota->delete();
         return redirect()->route('kota.index');
-        
     }
 }

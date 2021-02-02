@@ -80,42 +80,44 @@
               <p>
                 Form
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">5</span>
+                <span class="badge badge-info right">6</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
-            <a  class="nav-link" href="{{ ('/index') }}">
+            <a  class="nav-link" href="{{url('admin/provinsi')}}">
               <li class="nav-item">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Provinsi</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a  class="nav-link" href="{{ ('/provinsi') }}">
+                <a  class="nav-link" href="{{url('admin/kota')}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kota</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a  class="nav-link" href="{{ ('/kota') }}">
+                <a  class="nav-link" href="{{url('admin/kecamatan')}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kecamatan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a  class="nav-link" href="{{ ('/kecamatan') }}">
+                <a  class="nav-link" href="{{url('admin/kelurahan')}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kelurahan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a  class="nav-link" href="{{ ('/kelurahan') }}">
+                <a  class="nav-link" href="{{url('admin/rw')}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Rw</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a  class="nav-link" href="{{ ('/rw') }}">
+                <a  class="nav-link" href="{{url('admin/tracking')}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tracking</p>
                 </a>
               </li>
             </ul>

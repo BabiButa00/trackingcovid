@@ -16,7 +16,7 @@ class KelurahanController extends Controller
     public function index()
     {
         $kelurahan = Kelurahan::with('kecamatan')->get();
-        return view('admin.kelurahan.index', compact('kelurahan'));
+        return view('admin.kelurahan.index',compact('kelurahan'));
     }
 
     /**
@@ -27,7 +27,7 @@ class KelurahanController extends Controller
     public function create()
     {
         $kecamatan = Kecamatan::all();
-        return view('admin.kelurahan.create', compact('kecamatan'));
+        return view('admin.kelurahan.create',compact('kecamatan'));
     }
 
     /**
@@ -38,22 +38,12 @@ class KelurahanController extends Controller
      */
     public function store(Request $request)
     {
-        //VALIDASI
-        $request->validate([
-            'id_kelurahan' => 'required|max:4|unique:kelurahans',
-            'nama_kelurahan' => 'required|unique:kelurahans',
-        ], [
-            'id_kelurahan.required' => 'Kode Harus Di isi!',
-            'id_kelurahan.max' => 'Kode Maksimal 4 Nomor',
-            'id_kelurahan.unique' => 'Kode Sudah Di Pakai',
-            'nama_kelurahan.require' => 'Nama provinsi Harus Di isi',
-            'nama_kelurahan.unique' => 'Nama Sudah Di Pakai!',
+        $validated = $request->validate([
+            'nama_kelurahan' => 'required|unique:kelurahans|max:255',
         ]);
-
         $kelurahan = new Kelurahan();
-        $kelurahan->kode_kecamatan = $request->kode_kecamatan;
-        $kelurahan->id_kelurahan = $request->id_kelurahan;
         $kelurahan->nama_kelurahan = $request->nama_kelurahan;
+        $kelurahan->id_kecamatan = $request->id_kecamatan;
         $kelurahan->save();
         return redirect()->route('kelurahan.index');
     }
@@ -61,7 +51,7 @@ class KelurahanController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\kelurahan  $kelurahan
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -74,7 +64,7 @@ class KelurahanController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\kelurahan  $kelurahan
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -85,28 +75,26 @@ class KelurahanController extends Controller
         return view('admin.kelurahan.edit',compact('kelurahan','kecamatan','selected'));
     }
 
+
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\kelurahan  $kelurahan
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $kelurahan = Kelurahan::findOrFail($id);
-        $kelurahan->kode_kecamatan = $request->kode_kecamatan;
-        $kelurahan->id_kelurahan = $request->id_kelurahan;
         $kelurahan->nama_kelurahan = $request->nama_kelurahan;
+        $kelurahan->id_kecamatan = $request->id_kecamatan;
         $kelurahan->save();
         return redirect()->route('kelurahan.index');
-        
     }
-
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\kelurahan  $kelurahan
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -114,6 +102,5 @@ class KelurahanController extends Controller
         $kelurahan = Kelurahan::findOrFail($id);
         $kelurahan->delete();
         return redirect()->route('kelurahan.index');
-        
     }
 }

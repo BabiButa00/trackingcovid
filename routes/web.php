@@ -6,7 +6,7 @@ use App\Http\Controllers\KotaController;
 use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\KelurahanController;
 use App\Http\Controllers\RwController;
-use App\Http\Controllers\KasusController;
+use App\Http\Controllers\TrackingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,7 +48,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth']], function (){
 });
 
 Route::group(['prefix' => 'admin','middleware'=>['auth']], function (){
-    Route::resource('kasus', KasusController::class);
+    Route::resource('tracking', TrackingController::class);
 });
 // Route::get('/hello', function () {
 //     return ('welcome to the hell');

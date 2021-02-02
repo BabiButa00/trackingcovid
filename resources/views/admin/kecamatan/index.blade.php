@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-md-12">
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-header"><br>
                     Daftar Kecamatan
@@ -20,11 +20,10 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Nomor</th>   
-                                    <th>Kode kota</th>
-                                    <th>Kode Kecamatan</th>
+                                    <th>Nomor</th>
                                     <th>Nama Kecamatan</th>
-                                    <th colspan="3">Aksi</th>
+                                    <th>Nama Kota</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -35,16 +34,15 @@
                                 @method('DELETE')
                                     <tr>
                                         <td>{{$no++}}</td>
-                                        <td>{{$data->kode_kota}}</td>
-                                        <td>{{$data->kode_kecamatan}}</td>
                                         <td>{{$data->nama_kecamatan}}</td>
+                                        <td>{{$data->kota->nama_kota}}</td>
                                         <form action="{{route('kecamatan.destroy',$data->id)}}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                         <td>
-                                            <a href="{{route('kecamatan.show',$data->id)}}" class="btn btn-info">Show</a>
-                                            <a href="{{route('kecamatan.edit',$data->id)}}" class="btn btn-success">Edit</a>
-                                            <button type="submit" onclick="return confirm('Apakah anda yakin?');" class="btn btn-danger">Delete</button>
+                                            <a class="btn btn-info btn-sm btn-rounded " href="{{route('kecamatan.edit',$data->id)}}"> <i class="fa fa-edit"></i></a>
+                                            <a class="btn btn-warning btn-sm btn-rounded " href="{{route('kecamatan.show',$data->id)}}"> <i class="fa fa-eye"></i></a>
+                                            <button type="submit" onclick="return confirm('Apakah anda yakin?');" class="btn btn-danger btn-sm btn-rounded"><i class="fa fa-trash"></i></button>
                                         </td>
                                         </form>
                                     </tr>

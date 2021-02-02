@@ -1,30 +1,28 @@
 @extends('layouts.master')
+
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
             <div class="card">
-                <div class="card-header"> 
-                    Lihat Data Rw
+                <div class="card-header"><br>
+                Show
                 </div>
                 <div class="card-body">
-                <div class="form-group">
-                        <label>Id Kelurahan</label>
-                        <select name="id_kelurahan" class="form-control">
-                            @foreach ($kelurahan as $data)
-                            <option value="{{$data->id}}">{{$data->id_kelurahan}}</option>
-                            @endforeach
-                            </select>
+                    <div class="form-group">
+                        <label>Nama Rw</label>
+                        <input type="text" name="nama_rw" value="{{$rw->nama_rw}}" class="form-control" readonly>
                         </div>
                         <div class="form-group">
-                            <label for="">Id Rw</label>
-                            <input type="text" name="id_rw" class="form-control" value="{{$rw->id_rw}}" id="" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Nama Rw</label>
-                            <input type="text" name="nama" class="form-control" value="{{$rw->nama}}" id="" readonly>
-                        </div>
+                        <label>Nama kelurahan</label>
+                        <input type="text" class="form-control" value="{{$rw->kelurahan->nama_kelurahan}}" readonly>
+                    </select>
                 </div>
+                    <div class="form-group">
+                 <a href="{{url()->previous()}}" class="btn btn-primary">Kembali</a>
+                    </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

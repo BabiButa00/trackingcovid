@@ -1,45 +1,51 @@
 @extends('layouts.master')
-
-
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
             <div class="card">
-                <div class="card-header">
-                    Data Provinsi
-                    <a href="{{route('provinsi.create')}}" class="btn btn-primary btn-small float-right">Tambah Data</a>
+                <div class="card-header"><br>
+                    Daftar Kota
+                <a href="{{route('provinsi.create')}}" class="btn btn-primary float-right">
+                Tambah Data</a>
                 </div>
+
                 <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
                                 <tr>
-                                    <th>No</th>
-                                    <th>Kode Provinsi</th>
-                                    <th>Nama Provinsi</th>
-                                    <th>Aksi</th>
-                                </tr>
-                                @php $no = 1; @endphp
-                                @foreach($provinsi as $data)
+                                <th>No</th>
+                                <th>Kode Provinsi</th>
+                                <th>Nama Provinsi</th>
+                                <th>Action</th>
+                            </tr>
+                            @php $no=1; @endphp
+                            @foreach ($provinsi as $data)
+                            <form action="{{route('provinsi.destroy',$data->id)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
                                 <tr>
                                     <td>{{$no++}}</td>
                                     <td>{{$data->kode_provinsi}}</td>
                                     <td>{{$data->nama_provinsi}}</td>
                                     <td>
-                                        <form action="{{route('provinsi.destroy',$data->id)}}" method="POST">
-                                            @csrf @method('delete')
-                                            <a href="{{route('provinsi.edit',$data->id)}}" class="btn btn-success btn-small">Edit</a>
-                                            <a href="{{route('provinsi.show',$data->id)}}" class="btn btn-warning btn-small">Show</a>
-                                            <button type="submit" class="btn btn-danger btn-small">Delete</button>
-                                        </form>
+                                        <a class="btn btn-info btn-sm btn-rounded " href="{{route('provinsi.edit',$data->id)}}"> <i class="fa fa-edit"></i></a>
+                                            <a class="btn btn-warning btn-sm btn-rounded " href="{{route('provinsi.show',$data->id)}}"> <i class="fa fa-eye"></i></a>
+                                            <button type="submit" onclick="return confirm('Apakah anda yakin?');" class="btn btn-danger btn-sm btn-rounded"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
-                                @endforeach
-                            </table>
-                        </div>
+                            </form>
+                            @endforeach
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
