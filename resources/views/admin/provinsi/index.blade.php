@@ -5,9 +5,9 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header"><br>
-                    Daftar Kota
+                    DAFTAR KOTA
                 <a href="{{route('provinsi.create')}}" class="btn btn-primary float-right">
-                Tambah Data</a>
+                TAMBAH DATA</a>
                 </div>
 
                 <div class="card-body">
@@ -20,10 +20,10 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                <th>No</th>
-                                <th>Kode Provinsi</th>
-                                <th>Nama Provinsi</th>
-                                <th>Action</th>
+                                <th>NO</th>
+                                <th>KODE PROVINSI</th>
+                                <th>NAMA PROVINSI</th>
+                                <th>ACTION</th>
                             </tr>
                             @php $no=1; @endphp
                             @foreach ($provinsi as $data)

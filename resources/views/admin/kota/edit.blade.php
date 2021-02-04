@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header"><br>
-                Edit
+                EDIT
                 </div>
 
                 <div class="card-body">
@@ -14,15 +14,15 @@
                    @csrf
                    @method('PATCH')
                     <div class="form-group">
-                        <label>Kode Kota</label>
+                        <label>KODE KOTA</label>
                         <input type="text" name="kode_kota" value="{{$kota->kode_kota}}" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label>Nama Kota</label>
+                        <label>NAMA KOTA</label>
                         <input type="text" name="nama_kota" value="{{$kota->nama_kota}}" class="form-control" required>
                         </div>
                         <div class="form-group">
-                        <label>Nama Provinsi</label>
+                        <label>NAMA PROVINSI</label>
                         <select name="id_provinsi" class="form-control">
                         @foreach ($provinsi as $data)
                         <option value="{{$data->id}}" {{$data->id == $kota->id_provinsi ? 'selected' : ''}}>{{$data->nama_provinsi}}</option>
@@ -30,7 +30,7 @@
                         </select>
                         </div>
                     <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">SUBMIT</button>
                     </div>
                     </div>
                 </form>

@@ -38,27 +38,15 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="{{url('home')}}" class="nav-link">HOME</a>
       </li>
-
-    <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
 
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="{{asset('assets/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Tracking Covid</span>
+      <!-- <img src="{{asset('assets/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
+     <Center><span class="brand-text font-weight-light">TRACKING COVID</span></Center> 
     </a>
 
       <!-- Sidebar Menu -->
@@ -78,46 +66,46 @@
             <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Form
+                FORM
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
+                <span class="badge badge-info right"></span>
               </p>
             </a>
             <ul class="nav nav-treeview">
             <a  class="nav-link" href="{{url('admin/provinsi')}}">
               <li class="nav-item">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Provinsi</p>
+                  <p>PROVINSI</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a  class="nav-link" href="{{url('admin/kota')}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Kota</p>
+                  <p>KOTA</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a  class="nav-link" href="{{url('admin/kecamatan')}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Kecamatan</p>
+                  <p>KECAMATAN</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a  class="nav-link" href="{{url('admin/kelurahan')}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Kelurahan</p>
+                  <p>KELURAHAN</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a  class="nav-link" href="{{url('admin/rw')}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Rw</p>
+                  <p>RW</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a  class="nav-link" href="{{url('admin/tracking')}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Tracking</p>
+                  <p>TRACKING</p>
                 </a>
               </li>
             </ul>
@@ -134,15 +122,6 @@
 
 
   @yield('content')  
-  
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2020-2021 <a href="https://facebook.com">DzikryCodet.id</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 7.0.0-rc
-    </div>
-  </footer>
 
 
   <!-- Control Sidebar -->

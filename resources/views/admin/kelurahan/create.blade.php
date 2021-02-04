@@ -6,20 +6,20 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header"><br>
-                Tambah Desa
+                TAMBAH DESA
                 </div>
                 <div class="card-body">
                 <form action="{{route('kelurahan.store')}}" method="POST">
                    @csrf
                         <div class="form-group">
-                        <label>Nama Desa</label>
+                        <label>NAMA KELURAHAN</label>
                         <input type="text" name="nama_kelurahan" class="form-control" required>
                         @if ($errors->has('nama_kelurahan'))
                         <span class="text-danger">{{ $errors->first('nama_kelurahan') }}</span>
                         @endif
                         </div>
                         <div class="form-group">
-                        <label>Nama Kecamatan</label>
+                        <label>NAMA KECAMATAN</label>
                         <select name="id_kecamatan" class="form-control">
                         @foreach ($kecamatan as $data)
                         <option value="{{$data->id}}">{{$data->nama_kecamatan}}</option>
@@ -27,7 +27,7 @@
                         </select>
                         </div>
                     <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">SUBMIT</button>
                     </div>
                     </div>
                 </form>

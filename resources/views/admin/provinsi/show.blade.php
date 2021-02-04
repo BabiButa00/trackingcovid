@@ -6,19 +6,19 @@
         <div class="col-md-14">
             <div class="card">
                 <div class="card-header"><br>
-                Show
+                SHOW
                 </div>
                 <div class="card-body">
                     <div class="form-group">
-                    <label>Kode Provinsi</label>
+                    <label>KODE PROVINSI</label>
                     <input type="text" name="kode_provinsi" value="{{$provinsi->kode_provinsi}}" class="form-control" readonly>
                     </div>
                     <div class="form-group">
-                    <label>Nama Provinsi</label>
+                    <label>NAMA PROVINSI</label>
                     <input type="text" name="nama_provinsi" value="{{$provinsi->nama_provinsi}}" class="form-control" readonly>
                     </div>
                     <div class="form-group">
-                    <a href="{{url()->previous()}}" class="btn btn-primary">Back</a>
+                    <a href="{{url()->previous()}}" class="btn btn-primary">KEMBALI</a>
                     </div>
                     </div>
             </div>

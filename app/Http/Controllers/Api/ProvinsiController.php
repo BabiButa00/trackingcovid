@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Api\ProvinsiController;
 use App\Models\Provinsi;
+use Validator; 
 
 class ProvinsiController extends Controller
 {
@@ -17,11 +17,12 @@ class ProvinsiController extends Controller
     public function index()
     {
         $provinsi = Provinsi::latest()->get();
-        return response([
+        $prov = [
             'success' => true,
-            'message' => 'List Provinsi',
-            'data' => $provinsi
-        ], 200);
+            'data'    => $provinsi,
+            'message' => 'Data Provinsi Ditampilkan'
+        ];
+        return response()->json($prov, 200);
     }
 
     /**
@@ -42,7 +43,17 @@ class ProvinsiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $provinsi = new Provinsi();
+        $provinsi->kode_provinsi = $request->kode_provinsi;
+        $provinsi->nama_provinsi = $request->nama_provinsi;
+        $provinsi->save();
+
+        $prov = [
+            'success' => true,
+            'data'    => $provinsi,
+            'message' => 'Data berhasil di tambah'
+        ];
+        return response()->json($prov, 200);
     }
 
     /**
@@ -54,11 +65,10 @@ class ProvinsiController extends Controller
     public function show($id)
     {
         $provinsi = Provinsi::whereId($id)->first();
-
         if ($provinsi) {
             return response()->json([
                 'success' => true,
-                'message' => 'Detail Post!',
+                'message' => 'Detail Provinsi!',
                 'data'    => $provinsi
             ], 200);
         } else {
@@ -68,6 +78,7 @@ class ProvinsiController extends Controller
                 'data'    => ''
             ], 404);
         }
+        return response()->json($provinsi, 200);
     }
 
     /**
@@ -90,7 +101,38 @@ class ProvinsiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'kode_provinsi' => 'required',
+            'nama_provinsi' => 'required',
+        ],[
+            'kode_provinsi.required' => "Mohon Masukan Kode Provinsi",
+            'nama_provinsi.required' => "Mohon Masukan Nama Provinsi",
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'data' => $validator->errors(),
+                'message' => 'silakan isi bidang yang kosong',
+            ], 400);
+        }else {
+            $provinsi = Provinsi::whereId($id)->update([
+                'kode_provinsi' => $request->kode_provinsi,
+                'nama_provinsi' => $request->nama_provinsi,
+            ]);
+
+            if ($provinsi) {
+                return response()->json([
+                    'success' => true,
+                    'message' => 'data berhasil diUpdate!',
+                ], 200); 
+            }else{
+                return response()->json([
+                    'success' => false,
+                    'message' => 'data gagal diUpdate!',
+                ], 500); 
+            }
+    }
     }
 
     /**
@@ -107,12 +149,12 @@ class ProvinsiController extends Controller
         if ($provinsi) {
             return response()->json([
                 'success' => true,
-                'message' => 'Provinsi Berhasil Dihapus!',
+                'message' => 'data berhasil dihapus!',
             ], 200);
-        } else {
+        }else {
             return response()->json([
                 'success' => false,
-                'message' => 'Provinsi Gagal Dihapus!',
+                'message' => 'data gagal dihapus',
             ], 500);
         }
     }

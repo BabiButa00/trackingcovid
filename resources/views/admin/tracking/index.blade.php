@@ -18,22 +18,22 @@
             @endif
 
             <div class="card">
-                <div class="card-header">{{ __('Data Tracking') }}
-                <a href="{{route('tracking.create')}}" class="btn btn-primary float-right">Tambah Data</a>
+                <div class="card-header">{{ __('DATA TRACKING') }}
+                <a href="{{route('tracking.create')}}" class="btn btn-primary float-right">TAMBAH DATA</a>
             </div>
 
             <div class="card-body">
             <table id="example1" class="table table-bordered table-striped">
                     <thead>
-                      <th scope="col">No</th>
-                                            <th scope="col"><center>Lokasi</center></th>
+                      <th scope="col">NO</th>
+                                            <th scope="col"><center>LOKASI</center></th>
                                             <th scope="col"><center>RW</center></th>
-                                            <th scope="col"><center>Reaktif</center></th>
-                                            <th scope="col"><center>Positif</center></th>
-                                            <th scope="col"><center>Sembuh</center></th>
-                                            <th scope="col"><center>Meninggal</center></th>
-                                            <th scope="col"><center>Tanggal</center></th>
-                                            <th scope="col"><center>Action</center></th>
+                                            <th scope="col"><center>REAKTIF</center></th>
+                                            <th scope="col"><center>POSITIF</center></th>
+                                            <th scope="col"><center>SEMBUH</center></th>
+                                            <th scope="col"><center>MENINGGAL</center></th>
+                                            <th scope="col"><center>TANGGAL</center></th>
+                                            <th scope="col"><center>ACTION</center></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -43,10 +43,10 @@
 
                                         <tr>
                                             <th scope="row"><center>{{$no++}}</center></th>
-                                            <td><center>Kelurahan : {{$data->rw->kelurahan->nama_kelurahan}}<br>
-                                            Kecamatan : {{$data->rw->kelurahan->kecamatan->nama_kecamatan}}<br>
-                                            Kota : {{$data->rw->kelurahan->kecamatan->kota->nama_kota}}<br>
-                                            Provinsi : {{$data->rw->kelurahan->kecamatan->kota->provinsi->nama_provinsi}}</center></td>
+                                            <td><center>KELURAHAN : {{$data->rw->kelurahan->nama_kelurahan}}<br>
+                                            KECAMATAN : {{$data->rw->kelurahan->kecamatan->nama_kecamatan}}<br>
+                                            KOTA : {{$data->rw->kelurahan->kecamatan->kota->nama_kota}}<br>
+                                            PROVINSI : {{$data->rw->kelurahan->kecamatan->kota->provinsi->nama_provinsi}}</center></td>
                                             <td><center>{{$data->rw->nama_rw}}</center></td>
                                             <td><center>{{$data->reaktif}}</center></td>
                                             <td><center>{{$data->positif}}</center></td>
@@ -59,7 +59,7 @@
                                             @method('DELETE')
                                             <center>
                                             <a href="{{route('tracking.edit',$data->id)}}" class="btn btn-success">EDIT<i></a></i>
-                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin Hapus?')">DELETE<i class="fa fa-trash-alt">
+                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin Hapus?')">DELETE<i>
                                             </form>
                                         </tr>
                                     @endforeach

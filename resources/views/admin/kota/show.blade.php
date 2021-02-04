@@ -6,25 +6,25 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header"><br>
-                Show
+                SHOW
                 </div>
                 <div class="card-body">
                     <div class="form-group">
-                        <label>Kode Kota</label>
+                        <label>KODE KOTA</label>
                         <input type="text" name="kode_kota" value="{{$kota->kode_kota}}" class="form-control" readonly>
                     </div>
                     <div class="form-group">
-                        <label>Nama Kota</label>
+                        <label>NAMA KOTA</label>
                         <input type="text" name="nama_kota" value="{{$kota->nama_kota}}" class="form-control" readonly>
                         </div>
                         <div class="form-group">
                         <div class="form-group">
-                        <label>Nama Provinsi</label>
+                        <label>NAMA PROVINSI</label>
                         <input type="text" class="form-control" value="{{$kota->provinsi->nama_provinsi}}" readonly>
                     </select>
                 </div>
                     <div class="form-group">
-                 <a href="{{url()->previous()}}" class="btn btn-primary">Kembali</a>
+                 <a href="{{url()->previous()}}" class="btn btn-primary">KEMBALI</a>
                     </div>
                     </div>
                 </form>
