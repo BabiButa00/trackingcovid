@@ -7,6 +7,7 @@ use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\KelurahanController;
 use App\Http\Controllers\RwController;
 use App\Http\Controllers\TrackingController;
+use App\Http\Controllers\FrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,15 @@ Route::group(['prefix' => 'admin','middleware'=>['auth']], function (){
 Route::group(['prefix' => 'admin','middleware'=>['auth']], function (){
     Route::resource('tracking', TrackingController::class);
 });
+
+Route::resource('frontend',FrontendController::class);
+
+Route::resource('kontak',FrontendController::class);
+// Route::get('/kontak', function () {
+//     return view('admin.frontend.index');
+// });
+
+
 // Route::get('/hello', function () {
 //     return ('welcome to the hell');
 // });

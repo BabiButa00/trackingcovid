@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Registration Page</title>
+  <title>Tracking Covid-19 | Registration Page</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -17,16 +17,16 @@
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <a href="{{url('/admin')}}"><b>Admin</b>LTE</a>
+    <a href="{{url('/admin')}}"><b>ᴛʀᴀᴄᴋɪɴɢ ᴄᴏᴠɪᴅ</b></a>
   </div>
   <div class="card">
     <div class="card-body register-card-body">
-      <p class="login-box-msg">Register a new membership</p>
+      <p class="login-box-msg">𝘿𝙖𝙛𝙩𝙖𝙧 𝘿𝙞𝙨𝙞𝙣𝙞</p>
 
       <form action="{{route('register')}}" method="post">
           @csrf
         <div class="input-group mb-3">
-          <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Full name">
+          <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Username">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -68,7 +68,7 @@
           
         </div>
         <div class="input-group mb-3">
-          <input type="password" name="password_confirmation" class="form-control" placeholder="Retype password">
+          <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -86,25 +86,25 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Register</button>
+            <button type="submit" class="btn btn-primary btn-block">Daftar</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
 
       <div class="social-auth-links text-center">
-        <p>- OR -</p>
+        <p>- Atau -</p>
         <a href="#" class="btn btn-block btn-primary">
           <i class="fab fa-facebook mr-2"></i>
-          Sign up using Facebook
+          Masuk dengan Facebook
         </a>
         <a href="#" class="btn btn-block btn-danger">
           <i class="fab fa-google-plus mr-2"></i>
-          Sign up using Google+
+          Masuk dengan Google
         </a>
       </div>
 
-      <a href="login.html')}}" class="text-center">I already have a membership</a>
+      <a href="login.html')}}" class="text-center">Saya telah memiliki akun</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->
