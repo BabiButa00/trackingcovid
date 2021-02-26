@@ -53,8 +53,8 @@ Route::group(['prefix' => 'admin','middleware'=>['auth']], function (){
 });
 
 Route::resource('frontend',FrontendController::class);
+Route::resource('frontend/kontak',FrontendController::class);
 
-Route::resource('kontak',FrontendController::class);
 // Route::get('/kontak', function () {
 //     return view('admin.frontend.index');
 // });

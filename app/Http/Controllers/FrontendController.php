@@ -54,5 +54,9 @@ class FrontendController extends Controller
         
     return view('frontend.index',compact('positif','sembuh','meninggal','posglobal','semglobal','menglobal', 'tanggal','tampil','dunia'));
     }
+    public function show()
+    {
+    return view('frontend.kontak');
+    }
         
 }

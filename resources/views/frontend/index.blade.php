@@ -99,12 +99,13 @@
          </div>
         </div>
        </div><!-- COL END -->
-       <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+       <div class="col-sm-20 col-md-10 col-lg-10 col-xl-3">
         <div class="card  bg-info img-card box-success-shadow">
          <div class="card-body">
           <div class="d-flex">
            <div class="text-white">
             <h2 class="text-white mb-0">INDONESIA</h2>
+            </BR>
             <p class="mb-0 number-font"><b>{{$positif}}</b> POSITIF, <b>{{$sembuh}}</b> SEMBUH, <b>{{$meninggal}}</b>MENINGGAL</p>
            </div>
            <div class="ml-auto"> <img src="{{asset('assets/dist/img/indonesia-PZq.png')}}" width="50" height="50" alt="Positif"> </div>
@@ -113,9 +114,8 @@
         </div>
        </div><!-- COL END -->
      </div>
-     <br>
     </section><!-- End About Section -->
-                                        <h6><br><p>Update terakhir : {{ $tanggal }}</p></h6>
+             <center><h6><br><p>Update terakhir : {{ $tanggal }}</p></h6></center>
                                     </div> 
         <BR></BR>
 
