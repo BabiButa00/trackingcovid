@@ -40,6 +40,9 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{url('home')}}" class="nav-link">HOME</a>
       </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="{{url('/')}}" class="nav-link">KEMBALI KE HALAMAN UTAMA</a>
+      </li>
 
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">

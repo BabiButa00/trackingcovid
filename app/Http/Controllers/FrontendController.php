@@ -10,7 +10,7 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        $positif = DB::table('rws')
+    $positif = DB::table('rws')
         ->select('trackings.positif',
         'trackings.sembuh', 'trackings.meninggal')
         ->join('trackings','rws.id','=','trackings.id_rw')

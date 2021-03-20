@@ -20,10 +20,6 @@ use App\Http\Controllers\FrontendController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -52,7 +48,7 @@ Route::group(['prefix' => 'admin','middleware'=>['auth']], function (){
     Route::resource('tracking', TrackingController::class);
 });
 
-Route::resource('frontend',FrontendController::class);
+Route::resource('/',FrontendController::class);
 Route::resource('frontend/kontak',FrontendController::class);
 
 // Route::get('/kontak', function () {

@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\Provinsi::factory(20)->create();
         $this->call([
+            UserSeeder::class,
             ProvinsiSeeder::class,
             KotaSeeder::class,
             KecamatanSeeder::class,

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="{{asset('assets/dist/img/logo.jfif')}}">
-  <title>Tracking COVID-19 Di Indonesia</title>
+  <title>Tracking COVID-19</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -35,14 +35,16 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#" >KAWAL<b>CORONA</b></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="{{url('frontend')}}">BERANDA</a>
-        <a class="nav-link" href="{{url('frontend/kontak')}}">KONTAK</a>
-        <a class="nav-link" href="#">API</a>
+        <a class="nav-link active" aria-current="page" href="{{url('/')}}">BERANDA</a>
+        <a class="nav-link" href="{{ url('frontend/kontak')}}">KONTAK</a>
+        <a class="nav-link" href="{{ url('/api/global')}}">API</a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/login') }}">LOGIN FOR DEVELOPERS</a>
+            </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -56,7 +58,8 @@
     </div>
   </center>
 <BR></BR>
-<div class="row">
+    <div class="row">
+  	  <div class="col-lg-0"></div>
             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
         <div class="card bg-danger img-card box-primary-shadow">
          <div class="card-body">
@@ -81,6 +84,7 @@
             <p class="text-white mb-0">ORANG</p>
            </div>
            <div class="ml-auto"> <img src="{{asset('assets/dist/img/happy-ipM.png')}}" width="50" height="50" alt="Positif"> </div>
+           <BR></BR>
           </div>
          </div>
         </div>
@@ -106,7 +110,7 @@
            <div class="text-white">
             <h2 class="text-white mb-0">INDONESIA</h2>
             </BR>
-            <p class="mb-0 number-font"><b>{{$positif}}</b> POSITIF, <b>{{$sembuh}}</b> SEMBUH, <b>{{$meninggal}}</b>MENINGGAL</p>
+            <p class="mb-0 number-font"><b>{{$positif}}</b> POSITIF, <b>{{$sembuh}}</b> SEMBUH, <b>{{$meninggal}}</b> MENINGGAL </p>
            </div>
            <div class="ml-auto"> <img src="{{asset('assets/dist/img/indonesia-PZq.png')}}" width="50" height="50" alt="Positif"> </div>
           </div>
@@ -114,6 +118,7 @@
         </div>
        </div><!-- COL END -->
      </div>
+     <div class="col-lg-1"></div>
     </section><!-- End About Section -->
              <center><h6><br><p>Update terakhir : {{ $tanggal }}</p></h6></center>
                                     </div> 
@@ -128,7 +133,7 @@
       <div class="col-lg-10">
         <div class="card">
         <section id="kasusdunia" class="kasusdunia"><center>
-          <div class="card-header">Data Kasus Corona Virus Berdasarkan Negara</div></center>
+          <div class="card-header">DATA KASUS CORONA VIRUS BERDASARKAN NEGARA</div></center>
           <div class="card-body">
             <div style="height:600px;overflow:auto;margin-right:15px;">
             <table class="table table-striped">
@@ -173,27 +178,27 @@
       <div class="col-lg-10">
         <div class="card">
         <section id="kasusindonesia" class="kasusindonesia"><center>
-          <div class="card-header">Data Kasus Corona Virus Berdasarkan Provinsi</div></center>
+          <div class="card-header">DATA KASUS CORONA VIRUS BERDASARKAN PROVINSI</div></center>
           <div class="card-body">
             <div style="height:600px;overflow:auto;margin-right:15px;">
             <table class="table table-striped">
               <thead>
-                <th>No</th>
-                <th>Provinsi</th>
-                <th>Positif</th>
-                <th>Sembuh</th>
-                <th>Meninggal</th>
+                <th>NO</th>
+                <th>PROVINSI</th>
+                <th>POSITIF</th>
+                <th>SEMBUH</th>
+                <th>MENINGGAL</th>
               </thead>
               <tbody>
               @php $no=1; @endphp
-                                            @foreach($tampil as $tmp)
+                                            @foreach($tampil as $data)
                                    
                                         <tr>
                                             <th>{{$no++ }}</th>
-                                            <th>{{$tmp->nama_provinsi}}</th>
-                                            <th>{{number_format($tmp->Positif)}}</th>
-                                            <th>{{number_format($tmp->Sembuh)}}</th>
-                                            <th>{{number_format($tmp->Meninggal)}}</th>
+                                            <th>{{$data->nama_provinsi}}</th>
+                                            <th>{{number_format($data->Positif)}}</th>
+                                            <th>{{number_format($data->Sembuh)}}</th>
+                                            <th>{{number_format($data->Meninggal)}}</th>
                                         </tr>
                 @endforeach
                 
@@ -203,6 +208,11 @@
       </div>
     </div>
   </section>
+<BR></BR>
+
+                <div class="container-fluid">
+                  <center><h2><b><h2> BERITA TERKINI SEPUTAR COVID-19 </h2></b></h2></center>
+                </div>
                    <BR></BR>
                    <div class="row">
                      <div class="col-md-12 col-xl-6">
