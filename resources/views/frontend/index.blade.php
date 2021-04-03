@@ -37,9 +37,9 @@
     <a class="navbar-brand" href="#" >KAWAL<b>CORONA</b></a>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="{{url('/')}}">BERANDA</a>
-        <a class="nav-link" href="{{ url('frontend/kontak')}}">KONTAK</a>
-        <a class="nav-link" href="{{ url('/api/global')}}">API</a>
+        <a class="nav-link active" aria-current="page" href="{{ url('/') }}">BERANDA</a>
+        <a class="nav-link active" aria-current="page" href="{{ url('frontend/kontak') }}">KONTAK</a>
+        <a class="nav-link" href="{{ url('api/global') }}">API</a>
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('/login') }}">LOGIN FOR DEVELOPERS</a>
