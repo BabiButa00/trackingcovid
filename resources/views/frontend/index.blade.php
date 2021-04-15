@@ -156,8 +156,8 @@
                                                   <th>{{$no++ }}</th>
                                                   <th> <?php echo $data['attributes']['Country_Region'] ?></th>
                                                   <th> <?php echo number_format($data['attributes']['Confirmed']) ?></th>
-                                                  <th><?php echo number_format($data['attributes']['Recovered'])?></th>
-                                                  <th><?php echo number_format($data['attributes']['Deaths'])?></th>
+                                                  <th> <?php echo number_format($data['attributes']['Recovered']) ?></th>
+                                                  <th> <?php echo number_format($data['attributes']['Deaths']) ?></th>
                                                 </tr>
                                               @endforeach
                                  </tbody>
@@ -217,7 +217,7 @@
                    <div class="row">
                      <div class="col-md-12 col-xl-6">
                        <a href="https://www.unicef.org/indonesia/id/coronavirus">
-                        <div class="card text-white bg-orange">
+                        <div class="card text-white bg-primary">
                           <div class="card-body">
                             <h4 class="card-title">Novel coronavirus (COVID-19):Hal-hal yang perlu Anda ketahui</h4>
                             <p class="card-text">Unicef Indonesia</p>
