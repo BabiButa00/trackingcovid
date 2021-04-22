@@ -39,10 +39,10 @@
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="{{ url('/') }}">BERANDA</a>
         <a class="nav-link active" aria-current="page" href="{{ url('/kontak') }}">KONTAK</a>
-        <a class="nav-link" href="{{ url('api/global') }}">API</a>
+        <a class="nav-link active" aria-current="page" href="{{ url('api/global') }}">API</a>
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('/login') }}">LOGIN FOR DEVELOPERS</a>
+                <a class="nav-link active" aria-current="page" href="{{ url('/login') }}">LOGIN FOR DEVELOPERS</a>
             </li>
         </ul>
       </div>
