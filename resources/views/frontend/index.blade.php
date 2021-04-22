@@ -38,7 +38,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="{{ url('/') }}">BERANDA</a>
-        <a class="nav-link active" aria-current="page" href="{{ url('frontend/kontak') }}">KONTAK</a>
+        <a class="nav-link active" aria-current="page" href="{{ url('/kontak') }}">KONTAK</a>
         <a class="nav-link" href="{{ url('api/global') }}">API</a>
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -183,7 +183,7 @@
             <div style="height:600px;overflow:auto;margin-right:15px;">
             <table class="table table-striped">
               <thead>
-                <th>NO</th>
+                <th>NO.</th>
                 <th>PROVINSI</th>
                 <th>POSITIF</th>
                 <th>SEMBUH</th>

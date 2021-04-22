@@ -48,8 +48,10 @@ Route::group(['prefix' => 'admin','middleware'=>['auth']], function (){
     Route::resource('tracking', TrackingController::class);
 });
 
-Route::resource('/',FrontendController::class);
-Route::resource('frontend/kontak',FrontendController::class);
+Route::resource('kontak', FrontendController::class);
+
+Route::resource('/', FrontendController::class);
+
 
 // Route::get('/kontak', function () {
 //     return view('admin.frontend.index');
