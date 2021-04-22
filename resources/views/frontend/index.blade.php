@@ -182,12 +182,15 @@
           <div class="card-body">
             <div style="height:600px;overflow:auto;margin-right:15px;">
             <table class="table table-striped">
+            <div class="card-body" >
               <thead>
+              <tr>
                 <th>NO.</th>
                 <th>PROVINSI</th>
                 <th>POSITIF</th>
                 <th>SEMBUH</th>
                 <th>MENINGGAL</th>
+                </tr>
               </thead>
               <tbody>
               @php $no=1; @endphp
