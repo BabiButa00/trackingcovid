@@ -109,7 +109,7 @@
           <div class="d-flex">
            <div class="text-white">
             <h2 class="text-white mb-0">INDONESIA</h2>
-            </BR>
+            
             <p class="mb-0 number-font"><b>{{$positif}}</b> POSITIF, <b>{{$sembuh}}</b> SEMBUH, <b>{{$meninggal}}</b> MENINGGAL </p>
            </div>
            <div class="ml-auto"> <img src="{{asset('assets/dist/img/indonesia-PZq.png')}}" width="50" height="50" alt="Positif"> </div>
